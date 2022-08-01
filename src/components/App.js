@@ -4,13 +4,18 @@ import Navbar from './Navbar'
 import Main from './Main'
 import Web3 from 'web3';
 import './App.css';
+// import * as IPFS from 'ipfs-core' // library didn't work in creating an ipfs connection 
+import { Web3Storage, getFilesFromPath } from 'web3.storage'
+ 
 
 //Declare IPFS
-const ipfsClient = require('ipfs-http-client')
-const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }) // leaving out the arguments will default to these values
+// const ipfsClient = require('ipfs-http-client')// why isn't ipfs-http-client not working ? 
+// const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }) // leaving out the arguments will default to these values
+//const ipfs =  IPFS.create()// doesnt work cus library doesn't work 
+
 
 class App extends Component {
-
+  
   async componentWillMount() {
     await this.loadWeb3()
     await this.loadBlockchainData()
