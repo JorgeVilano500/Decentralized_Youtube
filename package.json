@@ -1,8 +1,8 @@
 {
   "name": "DVideo",
   "version": "0.1.0",
-  "description": "Decentralized platform for video publishing",
-  "author": "Dapp University",
+  "description": "Taking a twist on youtube and being able to upload and earn for participating in the network of the system. Eventually there will be a token linked to this app in which the users can use to earn their own amount.Taking a twist on youtube and being able to upload and earn for participating in the network of the system. Eventually there will be a token linked to this app in which the users can use to earn their own amount.",
+  "author": "JAVS",
   "homepage": ".",
   "dependencies": {
     "@truffle/hdwallet-provider": "^1.1.0",
@@ -18,16 +18,14 @@
     "chai-bignumber": "3.0.0",
     "dotenv": "^8.2.0",
     "identicon.js": "^2.3.3",
-    "ipfs-core": "^0.15.4",
-    "ipfs-http-client": "^33.1.1",
+    "ipfs-http-client": "^54.0.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.3",
     "truffle": "^5.1.45",
     "truffle-hdwallet-provider-privkey": "^0.3.0",
-    "web3": "^1.3.0",
-    "web3.storage": "^4.3.0"
+    "web3": "^1.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -47,6 +45,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/web3": "^1.2.2",
     "gh-pages": "^2.2.0"
   }
 }

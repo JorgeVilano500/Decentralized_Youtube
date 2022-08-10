@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.5.0;
 // 'truffle console' in the command line allows us to use js in the command line to test variables
 
@@ -13,7 +14,12 @@ contract DVideo {
   //Create id=>struct mapping
   // store videos in blockchain
   mapping(uint => Video) public videos; // still store Video's in the mapping of videos[#s]
-
+  mapping(string => Comment) public comment; // gonna implement comments by creating a mapping of comments for specific videos
+    // we use string to map because we have a hash that is linking it to the comments. 
+  string[] hashList;
+  string[] commentList;
+  uint hashNum;
+  
   //1. model the video
   //Create Struct
   struct Video {
@@ -21,6 +27,12 @@ contract DVideo {
     string hash; 
     string title; 
     address author; 
+  }
+  struct Comment {
+    uint id; // unique identifier for the comment
+    string hash; // will link the video that we hashed to the comments. 
+    string comment; 
+    address author; // author will be tracked
   }
 
   //Create Event
@@ -31,9 +43,28 @@ contract DVideo {
     address author 
   );
 
+  event CommentUploaded (
+      uint id, 
+      string hash, 
+      string comment, 
+      address author
+  );
 
-  constructor() public {
+  function getComments(string memory _videoHash) public  returns(string memory)  {
+    
   }
+
+  function addComment(string memory _videoHash, string memory _comment) public {
+      comment[_videoHash] = Comment(videoCount, _videoHash, _comment, msg.sender);
+      emit CommentUploaded(videoCount, _videoHash, _comment, msg.sender);
+    
+        hashList.push(_videoHash);
+
+  }
+
+
+//   constructor() public {
+//   }
 
 // upload video
   function uploadVideo(string memory _videoHash, string memory _title) public {
@@ -54,6 +85,6 @@ contract DVideo {
 
     // Trigger an event
     emit VideoUploaded(videoCount, _videoHash, _title, msg.sender);
-
+    // events will officially change the state of the blockchain according to geeksforgeeks
   }
 }
